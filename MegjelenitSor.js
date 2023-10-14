@@ -1,38 +1,52 @@
 class MegjelenitSor {
-    #adat = {};
- 
-    constructor(adat, szuloElem) {
-        this.#adat = adat;
-   
-        this.tablaElem = szuloElem;
+  #adat = {};
 
-        this.#sor();
-        /** eseménykezelők a kész és a törlés gombokhoz */
-        this.sorElem = this.tablaElem.children("tr:last-child");
-        this.keszElem = this.sorElem.children("td").children(".kesz");
-        this.torolElem = this.sorElem.children("td").children(".torol");
-     
-      
-        //console.log(this.keszElem);
-        this.keszElem.on("click", () => {
-            console.log(this)
-        });
-       
-       
+  constructor(adat, szuloElem, index) {
+    this.#adat = adat;
+    this.index = index;
+    this.tablaElem = szuloElem;
+    this.#sor();
+    /** eseménykezelők a kész és a törlés gombokhoz */
+    this.sorElem = this.tablaElem.children("tr:last-child");
+    this.keszElem = this.sorElem.children("td").children(".kesz");
+    this.megseElem = this.sorElem.children("td").children(".megse");
+    this.torolElem = this.sorElem.children("td").children(".torol");
+    if (this.#adat.kesz) {
+      this.setHatterszin();
+    } else {
     }
-    #sor() {
-        let txt = "";
+    //console.log(this.keszElem);
+    //ha nyíl függvény: hatokör ami a nyilt megába foglalja
+    // function függvény: html sor irja ki
+    this.keszElem.on("click", () => {
+      this.#esemenyTrigger("kesz");
+    });
 
-        txt += "<tr>";
-        for (const key in this.#adat) {
-            txt += `<td>${this.#adat[key]}</td>`;
-          }
-        
-        txt += `<td><span class="kesz">✔️</span> <span class="torol">🗑</span></td>`;
-        txt += "</tr>";
+    this.torolElem.on("click", () => {
+      this.#esemenyTrigger("torles");
+    });
+  }
 
-        this.tablaElem.append(txt);
+  setHatterszin() {
+    this.sorElem.css("background-color", "green");
+    
+  }
+  #sor() {
+    let txt = "";
+    txt += "<tr>";
+    for (const key in this.#adat) {
+      if (key != "kesz") {
+        txt += `<td>${this.#adat[key]}</td>`;
+      } 
     }
-   
+    txt += `<td><span class="kesz">✔️</span> <span class="megse"> X </span> <span class="torol">🗑</span></td>`;
+    txt += "</tr>";
+    this.tablaElem.append(txt);
+  }
+
+  #esemenyTrigger(esemenyNev) {
+    const esemeny = new CustomEvent(esemenyNev, { detail: this });
+    window.dispatchEvent(esemeny);
+  }
 }
 export default MegjelenitSor;

@@ -8,6 +8,7 @@ class Megjelenit {
     this.tablaElem = szuloElem.children("table");
 
     this.tablazatbaIr();
+
   }
   tablazatbaIr() {
     // for (let index = 0; index < this.#list.length; index++) {
@@ -17,8 +18,9 @@ class Megjelenit {
     // }
 
     // helyette:
-    this.#list.forEach((elem) => {
-      new MegjelenitSor(elem, this.tablaElem);
+    this.#list.forEach((elem,index) => {
+      new MegjelenitSor(elem, this.tablaElem,index);
+
     });
   }
 }
