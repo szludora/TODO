@@ -25,6 +25,10 @@ class MegjelenitSor {
     this.torolElem.on("click", () => {
       this.#esemenyTrigger("torles");
     });
+
+    this.megseElem.on("click", () => {
+      this.#esemenyTrigger("megse");
+    });
   }
 
   setHatterszin() {

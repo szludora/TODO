@@ -11,19 +11,19 @@ export const TODOLIST = [
 ];
 export const TODOLIST2 = [
     {
-        tevekenyseg: "szakdolgozat specifikáció elkészítése",
+        tevekenyseg: "Szakdolgozat specifikáció elkészítése",
         hatarido: "2023.10.15",
     },
-    { tevekenyseg: "drótváz, funkciólista", hatarido: "2023.10.30" },
-    { tevekenyseg: "adatbázis tervezés, létrehozás", hatarido: "2023.12.11" },
-    { tevekenyseg: "backend 80%", hatarido: "2024.01.20" },
-    { tevekenyseg: "frontend 80%", hatarido: "2023.02.11" },
+    { tevekenyseg: "Drótváz, funkciólista", hatarido: "2023.10.30" },
+    { tevekenyseg: "Adatbázis tervezés, létrehozás", hatarido: "2023.12.11" },
+    { tevekenyseg: "Backend 80%", hatarido: "2024.01.20" },
+    { tevekenyseg: "Frontend 80%", hatarido: "2023.02.11" },
     { tevekenyseg: "OSZTV", hatarido: "2023.02.26" },
-    { tevekenyseg: "tesztelés, dokumentáció", hatarido: "folyamatosan" },
+    { tevekenyseg: "Tesztelés, dokumentáció", hatarido: "folyamatosan" },
    
     {
-        tevekenyseg: "kész szakdolgozat legalább 99%-os készültséggel",
+        tevekenyseg: "Kész szakdolgozat legalább 99%-os készültséggel",
         hatarido: "2024.03.31",
     },
-    { tevekenyseg: "kész dokumentáció", hatarido: "2024.04.15" }
+    { tevekenyseg: "Kész dokumentáció", hatarido: "2024.04.15" }
 ];

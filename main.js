@@ -15,6 +15,16 @@ $(function () {
        
     });
 
+    $(window).on("megse",(event)=>{
+        let objPeldany = event.detail
+        // console.log(event.detail)
+        // console.log("Kész esemény!")
+        TODOLIST2[objPeldany.index].kesz=false;
+        console.log(TODOLIST2);
+       
+    });
+    
+
     $(window).on("torles",(event)=>{
         let objPeldany = event.detail
         // console.log(event.detail)

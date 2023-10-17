@@ -1,5 +1,7 @@
-html{
-    background-image: url();
+body{
+    background-image: url(simple-elegant-white-background-free-vector.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -9,3 +11,38 @@ html{
     cursor: grab;
     font-size: 15pt;
 }
+
+.tarolo{
+    padding: 85px;
+    
+}
+
+table{
+    background-color: rgba(37, 34, 30, 0.692);
+}
+
+td,h1{
+    color:white;
+    text-align: center;
+}
+
+h1{
+    padding-top: 80px;
+    font-size: 80px;
+    background: #000000;
+background: radial-gradient(circle farthest-corner at center center, #000000 0%, #ff0000 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+footer{
+    text-align: center;
+    color: white;
+    font-weight: 800;
+    font-size: 30px;
+    background: #000000;
+background: radial-gradient(circle farthest-corner at center center, #09072b 0%, #00aaff 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
