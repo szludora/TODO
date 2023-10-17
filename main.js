@@ -30,10 +30,13 @@ $(function () {
         let objPeldany = event.detail
         // console.log(event.detail)
         // console.log("Törlés esemény!")
-        TODOLIST2.splice(objPeldany.index,1) // törlés a listából
-        console.log(TODOLIST2);
-        szuloELEM.empty();
-        new Megjelenit(TODOLIST2,szuloELEM)
+        const confirmed = confirm("Biztosan törölni szeretnéd?");
+        if (confirmed) {
+            TODOLIST2.splice(objPeldany.index, 1); // törlés a listából
+            console.log(TODOLIST2);
+            szuloELEM.empty();
+            new Megjelenit(TODOLIST2, szuloELEM);
+        }
     });
 
     $(window).on("torles", (event) => {
