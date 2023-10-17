@@ -6,7 +6,6 @@ class Megjelenit {
     this.#list = list;
     szuloElem.append('<table class="table table-bordered table-striped  ">');
     this.tablaElem = szuloElem.children("table");
-
     this.tablazatbaIr();
 
   }

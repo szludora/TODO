@@ -21,7 +21,8 @@ $(function () {
         // console.log("Kész esemény!")
         TODOLIST2[objPeldany.index].kesz=false;
         console.log(TODOLIST2);
-       
+        szuloELEM.empty();
+        new Megjelenit(TODOLIST2,szuloELEM)
     });
     
 
@@ -36,6 +37,10 @@ $(function () {
     });
 
     $(window).on("torles", (event) => {
+        console.log(event.detail);
+    });
+
+    $(window).on("megse", (event) => {
         console.log(event.detail);
     });
 

@@ -5,48 +5,57 @@ class MegjelenitSor {
     this.#adat = adat;
     this.index = index;
     this.tablaElem = szuloElem;
+
     this.#sor();
     /** eseménykezelők a kész és a törlés gombokhoz */
-    this.sorElem = this.tablaElem.children("tr:last-child");
-    this.keszElem = this.sorElem.children("td").children(".kesz");
-    this.megseElem = this.sorElem.children("td").children(".megse");
-    this.torolElem = this.sorElem.children("td").children(".torol");
-    if (this.#adat.kesz) {
-      this.setHatterszin();
-    } else {
-    }
-    //console.log(this.keszElem);
-    //ha nyíl függvény: hatokör ami a nyilt megába foglalja
-    // function függvény: html sor irja ki
+    this.sorElem = this.tablaElem.find("tr:last");
+    this.keszElem = this.sorElem.find(".kesz");
+    this.torolElem = this.sorElem.find(".torol");
+
     this.keszElem.on("click", () => {
       this.#esemenyTrigger("kesz");
+      this.sorElem.find(".kesz").replaceWith('<span class="megse">❌</span>');
+      this.setHatterszin();
+      this.megseElem = this.sorElem.find(".megse");
+      this.megseElem.on("click", () => {
+        this.#esemenyTrigger("megse");
+        this.sorElem.find(".megse").replaceWith('<span class="kesz">✔️</span>');
+        this.setHatterszin();
+      });
     });
 
     this.torolElem.on("click", () => {
       this.#esemenyTrigger("torles");
     });
 
-    this.megseElem.on("click", () => {
-      this.#esemenyTrigger("megse");
-    });
+    // this.megseElem.on("click", () => {
+    //   this.#esemenyTrigger("megse");
+    //   this.sorElem.find(".megse").replaceWith('<span class="kesz">✔️</span>');
+    //   this.setHatterszin();
+    // });
   }
 
   setHatterszin() {
-    this.sorElem.css("background-color", "green");
-    
+    if (this.keszElem.hasClass("kesz")) {
+      this.sorElem.css("background-color", "green");
+    } else {
+      this.sorElem.css("background-color", "37, 34, 30, 0.692");
+    }
   }
+
   #sor() {
     let txt = "";
     txt += "<tr>";
     for (const key in this.#adat) {
       if (key != "kesz") {
         txt += `<td>${this.#adat[key]}</td>`;
-      } 
+      }
     }
-    txt += `<td><span class="kesz">✔️</span> <span class="megse"> X </span> <span class="torol">🗑</span></td>`;
+    txt += `<td><span class="kesz">✔️</span> <span class="torol">🗑</span></td>`;
     txt += "</tr>";
     this.tablaElem.append(txt);
   }
+  
 
   #esemenyTrigger(esemenyNev) {
     const esemeny = new CustomEvent(esemenyNev, { detail: this });
@@ -54,3 +63,4 @@ class MegjelenitSor {
   }
 }
 export default MegjelenitSor;
+
