@@ -7,8 +7,8 @@ body {
 .kesz,
 .torol,
 .megse {
-  cursor: grab;
   font-size: 15pt;
+  cursor: pointer;
 }
 
 .tarolo {
@@ -55,4 +55,16 @@ footer {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.megse {
+  display: none;
+}
+
+.zold {
+  background-color: green;
+}
+
+.szintelen {
+  background-color: "37,34,30,0.692";
 }

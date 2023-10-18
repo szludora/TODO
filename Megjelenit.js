@@ -10,13 +10,6 @@ class Megjelenit {
 
   }
   tablazatbaIr() {
-    // for (let index = 0; index < this.#list.length; index++) {
-    //     const elem = this.#list[index];
-
-    //     new MegjelenitSor(elem, this.tablaElem);
-    // }
-
-    // helyette:
     this.#list.forEach((elem,index) => {
       new MegjelenitSor(elem, this.tablaElem,index);
 

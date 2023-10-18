@@ -11,8 +11,6 @@ $(function () {
         // console.log("Kész esemény!")
         objPeldany.setHatterszin()
         TODOLIST2[objPeldany.index].kesz=true;
-        console.log(TODOLIST2);
-       
     });
 
     $(window).on("megse",(event)=>{
@@ -20,9 +18,6 @@ $(function () {
         // console.log(event.detail)
         // console.log("Kész esemény!")
         TODOLIST2[objPeldany.index].kesz=false;
-        console.log(TODOLIST2);
-        szuloELEM.empty();
-        new Megjelenit(TODOLIST2,szuloELEM)
     });
     
 
@@ -33,21 +28,17 @@ $(function () {
         const confirmed = confirm("Biztosan törölni szeretnéd?");
         if (confirmed) {
             TODOLIST2.splice(objPeldany.index, 1); // törlés a listából
-            console.log(TODOLIST2);
             szuloELEM.empty();
             new Megjelenit(TODOLIST2, szuloELEM);
         }
     });
 
     $(window).on("torles", (event) => {
-        console.log(event.detail);
     });
 
     $(window).on("megse", (event) => {
-        console.log(event.detail);
     });
 
     $(window).on("kesz", (event) => {
-        console.log(event.detail);
     });
 });
